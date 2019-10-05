@@ -1,3 +1,7 @@
 {
-  "name": "javascriptthirty"
+  "name": "javascriptthirty",
+  "version": "1.0.0",
+  "description": "Not a real project",
+  "dependencies": {},
+  "scripts": {}
 }
