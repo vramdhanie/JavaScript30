@@ -62,12 +62,40 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: right center;
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
+
+
 
   </style>
 
   <script>
 
+    const secondHand = document.querySelector('.second-hand');
+    const hourHand = document.querySelector('.hour-hand');
+    const minuteHand = document.querySelector('.min-hand');
+
+    function tick() {
+      const d = new Date();
+      const hour = d.getHours();
+      const minute = d.getMinutes();
+      const second = d.getSeconds();
+
+      const hourRotation = ((hour - 9) * 30) + (minute * 0.5);
+      const minuteRotation = (minute - 45) * 6;
+      const secondRotation = (second - 45) * 6;
+
+      hourHand.style.transform = `scale(0.8) rotate(${hourRotation}deg)`;
+      minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+      secondHand.style.transform = `scale(1.1) rotate(${secondRotation}deg)`;
+
+    }
+
+    setInterval(tick, 1000);
+
+    tick();
 
   </script>
 </body>
