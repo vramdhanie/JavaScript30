@@ -22,6 +22,17 @@
 
   <style>
 
+    :root {
+      --base: #FFFFEF;
+      --blur: blur(10px);
+      --spacing: 10px;
+    }
+
+    img {
+      filter: var(--blur);
+      padding: var(--spacing);
+      background: var(--base);
+    }
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -45,6 +56,23 @@
   </style>
 
   <script>
+    window.addEventListener('load', () => {
+      document.querySelector('#spacing').addEventListener('change', e => {
+        document.documentElement.style
+                .setProperty('--spacing', `${e.target.value}px`);
+      });
+
+      document.querySelector('#blur').addEventListener('change', e => {
+        document.documentElement.style
+                .setProperty('--blur', `blur(${e.target.value}px)`);
+      });
+
+      document.querySelector('#base').addEventListener('change', e => {
+        document.documentElement.style
+                .setProperty('--base', e.target.value);
+      });
+    })
+
   </script>
 
 </body>
